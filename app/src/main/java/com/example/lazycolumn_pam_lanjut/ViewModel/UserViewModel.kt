@@ -1,5 +1,6 @@
 package com.example.lazycolumn_pam_lanjut.ViewModel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.lazycolumn_pam_lanjut.API.APIClient
@@ -21,7 +22,7 @@ class UserViewModel : ViewModel() {
             try {
                 _users.value = APIClient.apiService.getUsers()
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.e("UserVM", "Error: ${e.message}")
             }
         }
     }
